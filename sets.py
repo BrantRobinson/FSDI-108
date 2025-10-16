@@ -44,9 +44,20 @@ print("----------MINI CHALLENGE-------------")
 invited_friends = {"Alex", "Sam", "Leo", "Mina"}
 rsvps = {"Mina", "Sam", "Jordan"}
 
-print(f"Here is everyone who was invited: {invited_friends.union(rsvps)}")
-print(f"Here is everone that RSVPed: {rsvps}")
-print(f"Here are the people who haven't responded yet: {invited_friends.difference(rsvps)}")
+all_friends = invited_friends.union(rsvps)
+print("Here is everyone who was invited:")
+for name in all_friends:
+    print(name)
+
+print("Here is everone that RSVPed:")
+for name in rsvps:
+    print(name)
+
+not_rsvp = invited_friends.difference(rsvps)
+num = len(not_rsvp)
+print(f"Here are the {num} people who haven't responded yet:")
+for name in not_rsvp:
+    print(name)
 
 #add 2 names to invited friends
 invited_friends.update(["Ed", "Kathi"])
@@ -54,10 +65,12 @@ invited_friends.update(["Ed", "Kathi"])
 #one of the people canceled - delete them
 rsvps.discard("Mina")
 print("Mina cancelled")
-print(f"New RSVP List: {rsvps}")
+print("New RSVP List:")
+for name in rsvps:
+    print(name)
 
 #print number of confirmed attendees
-print(len(rsvps))
+print(f"confirnmed # of attendees: {len(rsvps)}")
 
 if "Leo" in rsvps:
     print("Leo is coming")
