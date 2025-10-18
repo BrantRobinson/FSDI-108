@@ -4,7 +4,7 @@ menu_header = """
 ===========Main Menu===========
 ==============================="""
 
-menu = [menu_header, "1. - View Catalog", "2. - Search Products", "3. - View Cart", "Q. - Quit"]
+menu = [menu_header, "1. - View Catalog", "2. - Search Products", "3. - View Cart", "4. - CLear Cart", "Q. - Quit"]
 cart = []
 
 def print_header(text):
@@ -73,6 +73,10 @@ def get_cart_total(cart):
         item_cost = int(prod["price"])
         total = total + item_cost
     return total
+
+def clear_cart():
+    cart.clear()
+    view_cart()
    
 # MAIN LOOP
 print_header("Welcome to the Store")
@@ -88,6 +92,8 @@ while options.lower() != "q":
         search_products()
     elif options == "3":
         view_cart()
+    elif options == "4":
+        clear_cart()
     elif options.lower() == "q":
         print(menu[3])
     else:
