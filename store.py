@@ -45,8 +45,11 @@ def view_cart():
 ===============================
 ===========Your Cart===========
 ===============================""")
-    for item in cart:
-        print(f"| {item["id"]} | {item["title"].ljust(15)}  |${item["price"]/100}|")
+    if not cart:
+        print("Cart is empty")
+    else:
+        for item in cart:
+            print(f"| {item["id"]} | {item["title"].ljust(15)}  |${item["price"]/100}|")
     
 def search_products():
     text = input("Search text: ")
