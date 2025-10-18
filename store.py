@@ -50,6 +50,8 @@ def view_cart():
     else:
         for item in cart:
             print(f"| {item["id"]} | {item["title"].ljust(15)}  |${item["price"]/100}|")
+        total = get_cart_total(cart)
+        print(f"Total cart price = ${total/100}")
     
 def search_products():
     text = input("Search text: ")
@@ -64,6 +66,13 @@ def search_products():
                 add_product_to_cart(prod["id"])
     if not found:
         print("Product not found")
+
+def get_cart_total(cart):
+    total = 0
+    for prod in cart:
+        item_cost = int(prod["price"])
+        total = total + item_cost
+    return total
    
 # MAIN LOOP
 print_header("Welcome to the Store")
