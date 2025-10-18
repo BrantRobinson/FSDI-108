@@ -63,7 +63,7 @@ for name in not_rsvp:
 invited_friends.update(["Ed", "Kathi"])
 
 #one of the people canceled - delete them
-rsvps.discard("Mina")
+rsvps.discard("Mina") # could have used .remove, but used this to prevent errors just in case 
 print("Mina cancelled")
 print("New RSVP List:")
 for name in rsvps:
